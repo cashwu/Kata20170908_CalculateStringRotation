@@ -19,6 +19,12 @@ namespace Kata20170908_CalculateStringRotation
             CalculateRotationStringShouldBe(1, "abc", "cab");
         }
 
+        [TestMethod]
+        public void input_first_abc_second_bca_should_return_2()
+        {
+            CalculateRotationStringShouldBe(2, "abc", "bca");
+        }
+
         private static void CalculateRotationStringShouldBe(int expected, string first, string second)
         {
             var rotation = new CalculateStringRotation();
