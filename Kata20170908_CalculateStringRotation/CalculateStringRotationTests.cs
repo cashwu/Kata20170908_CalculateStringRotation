@@ -25,6 +25,12 @@ namespace Kata20170908_CalculateStringRotation
             CalculateRotationStringShouldBe(2, "abc", "bca");
         }
 
+        [TestMethod]
+        public void input_first_coff_second_ffco_should_return_2()
+        {
+            CalculateRotationStringShouldBe(2, "coff", "ffco");
+        }
+
         private static void CalculateRotationStringShouldBe(int expected, string first, string second)
         {
             var rotation = new CalculateStringRotation();
@@ -42,8 +48,17 @@ namespace Kata20170908_CalculateStringRotation
                 return 0;
             }
 
-            var firstChar = first.Last();
-            return second.IndexOf(firstChar) + 1;
+            for (int i = 1; i <= first.Length; i++)
+            {
+                var rotationString = second.Substring(i) + string.Concat(second.Take(i));
+
+                if (first == rotationString)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
     }
 }
