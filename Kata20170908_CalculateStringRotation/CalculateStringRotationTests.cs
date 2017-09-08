@@ -79,22 +79,20 @@ namespace Kata20170908_CalculateStringRotation
     {
         public int ShiftedDiff(string first, string second)
         {
-            if (first == second)
+            for (var i = 0; i < second.Length; i++)
             {
-                return 0;
-            }
-
-            for (int i = 1; i <= second.Length; i++)
-            {
-                var rotationString = second.Substring(i) + string.Concat(second.Take(i));
-
-                if (first == rotationString)
+                if (first == RotationString(second, i))
                 {
                     return i;
                 }
             }
 
             return -1;
+        }
+
+        private static string RotationString(string second, int i)
+        {
+            return second.Substring(i) + string.Concat(second.Take(i));
         }
     }
 }
