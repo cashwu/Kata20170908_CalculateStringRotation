@@ -31,6 +31,42 @@ namespace Kata20170908_CalculateStringRotation
             CalculateRotationStringShouldBe(2, "coff", "ffco");
         }
 
+        [TestMethod]
+        public void input_first_eecoff_second_coffee_should_return_4()
+        {
+            CalculateRotationStringShouldBe(4, "eecoff", "coffee");
+        }
+
+        [TestMethod]
+        public void input_first_Moose_second_moose_should_return_n1()
+        {
+            CalculateRotationStringShouldBe(-1, "Moose", "moose");
+        }
+
+        [TestMethod]
+        public void input_first_isnt_second_tisn_should_return_2()
+        {
+            CalculateRotationStringShouldBe(2, "isn't", "'tisn");
+        }
+
+        [TestMethod]
+        public void input_first_Esham_second_Esham_should_return_0()
+        {
+            CalculateRotationStringShouldBe(0, "Esham", "Esham");
+        }
+
+        [TestMethod]
+        public void input_first_hoop_second_pooh_should_return_n1()
+        {
+            CalculateRotationStringShouldBe(-1, "hoop", "pooh");
+        }
+
+        [TestMethod]
+        public void input_first_2_whitespace_second_1_whitespace_should_return_n1()
+        {
+            CalculateRotationStringShouldBe(-1, "  ", " ");
+        }
+
         private static void CalculateRotationStringShouldBe(int expected, string first, string second)
         {
             var rotation = new CalculateStringRotation();
@@ -48,7 +84,7 @@ namespace Kata20170908_CalculateStringRotation
                 return 0;
             }
 
-            for (int i = 1; i <= first.Length; i++)
+            for (int i = 1; i <= second.Length; i++)
             {
                 var rotationString = second.Substring(i) + string.Concat(second.Take(i));
 
