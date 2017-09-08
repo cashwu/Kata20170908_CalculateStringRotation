@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Kata20170908_CalculateStringRotation
 {
     [TestClass]
-    public class UnitTest1
+    public class CalculateStringRotationTests
     {
         [TestMethod]
         public void TestMethod1()
